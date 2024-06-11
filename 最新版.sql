@@ -28,16 +28,16 @@ CREATE TABLE members (
 
 
 INSERT INTO	members (memberId, memberName, memberAccount, memberPassword, memberAddress, memberEmail,lockStatus) VALUES
-(1, '³¯¤p©ú', 'chenxiaoming', 'mypassword', '¥x¥_¥««H¸q°Ï', 'chenxiaoming@example.com','¥¿±`'),
-(2, 'ªL¤pµØ', 'linxiaohua', 'abc123', '·s¥_¥«ªO¾ô°Ï', 'linxiaohua@example.com','¥¿±`'),
-(3, '±i¤p¬ü', 'zhangxiaomei', 'qwerty', '®ç¶é¥«¤¤Ãc°Ï', 'zhangxiaomei@example.com','¥¿±`'),
-(4, '§õ¤pÀs', 'lisaolong', 'iloveyou', '¥x¤¤¥«¦è¤Ù°Ï', 'lisaolong@example.com','¥¿±`'),
-(5, '¤ý¤p±j', 'wangxiaoqiang', 'passpass', '¥x«n¥«¦w«n°Ï', 'wangxiaoqiang@example.com','¥¿±`'),
-(6, '§d¤p©k', 'wuxiaoshan', 'letmein', '°ª¶¯¥««eÂí°Ï', 'wuxiaoshan@example.com','¥¿±`'),
-(7, '³¯¤p¬Â', 'chenxiaoling', '123456789', '°ò¶©¥«¦w¼Ö°Ï', 'chenxiaoling@example.com','¥¿±`'),
-(8, 'ªL¤p¬K', 'linxiaochun', 'sunshine', '·s¦Ë¥«ªF°Ï', 'linxiaochun@example.com','¥¿±`'),
-(9, '¶À¤pÁ¨', 'huangxiaowei', 'password', '¹Å¸q¥«ªF°Ï', 'huangxiaowei@example.com','¥¿±`'),
-(10, '¼B¤pµX', 'liuxiaoqi', 'welcome', '·s¥_¥«¥Ã©M°Ï', 'liuxiaoqi@example.com','¥¿±`');
+(1, 'é™³å°æ˜Ž', 'chenxiaoming', 'mypassword', 'å°åŒ—å¸‚ä¿¡ç¾©å€', 'chenxiaoming@example.com','æ­£å¸¸'),
+(2, 'æž—å°è¯', 'linxiaohua', 'abc123', 'æ–°åŒ—å¸‚æ¿æ©‹å€', 'linxiaohua@example.com','æ­£å¸¸'),
+(3, 'å¼µå°ç¾Ž', 'zhangxiaomei', 'qwerty', 'æ¡ƒåœ’å¸‚ä¸­å£¢å€', 'zhangxiaomei@example.com','æ­£å¸¸'),
+(4, 'æŽå°é¾', 'lisaolong', 'iloveyou', 'å°ä¸­å¸‚è¥¿å±¯å€', 'lisaolong@example.com','æ­£å¸¸'),
+(5, 'çŽ‹å°å¼·', 'wangxiaoqiang', 'passpass', 'å°å—å¸‚å®‰å—å€', 'wangxiaoqiang@example.com','æ­£å¸¸'),
+(6, 'å³å°å§', 'wuxiaoshan', 'letmein', 'é«˜é›„å¸‚å‰éŽ®å€', 'wuxiaoshan@example.com','æ­£å¸¸'),
+(7, 'é™³å°çŽ²', 'chenxiaoling', '123456789', 'åŸºéš†å¸‚å®‰æ¨‚å€', 'chenxiaoling@example.com','æ­£å¸¸'),
+(8, 'æž—å°æ˜¥', 'linxiaochun', 'sunshine', 'æ–°ç«¹å¸‚æ±å€', 'linxiaochun@example.com','æ­£å¸¸'),
+(9, 'é»ƒå°è–‡', 'huangxiaowei', 'password', 'å˜‰ç¾©å¸‚æ±å€', 'huangxiaowei@example.com','æ­£å¸¸'),
+(10, 'åŠ‰å°çª', 'liuxiaoqi', 'welcome', 'æ–°åŒ—å¸‚æ°¸å’Œå€', 'liuxiaoqi@example.com','æ­£å¸¸');
 
 CREATE TABLE product (
     productId INT PRIMARY KEY IDENTITY(1,1),
@@ -48,23 +48,24 @@ CREATE TABLE product (
     productExpirydate INT,
     productDescription TEXT,
     productPublished BIT 
-    -- 0 ªí¥Ü¥¼¤W¬[¡A1 ªí¥Ü¤w¤W¬[
+    -- 0 è¡¨ç¤ºæœªä¸Šæž¶ï¼Œ1 è¡¨ç¤ºå·²ä¸Šæž¶
 );
 
 INSERT INTO product (productName, productType, productCost, productPrize, productExpirydate, productDescription, productPublished)
 VALUES 
-    ('²Î¤@³Á­»¥¤¯ùTP375ml', '¶¼«~', 8, 15, 365, '¾J«p¬õ¯ùµ²¦X¤j³Á­»®ð»P¨Å¯»½Õ°t¡A§e²{¨ã¿W¯S¤j³Á¤ÎµJ¿}­·¨ýªº¥¤¯ù',1),
-    ('²Î¤@³Á­»ºñ¯ùTP375ml', '¶¼«~', 8, 15, 365, '¿ï¥Î²¢­»¯S¦âªºµH­»ºñ¯ù¸­¡AµÑ¨ú¾J«p²¢­»¯ù¥Ä¡A·f°t¤j³ÁµHª£²¢­»¡A§e²{¿W¯S¤j³Á­·¨ýªººñ¯ù',1),
-    ('[ÀuÂA¨K]½¯¶V²ùºî¦XªG¥Ä500ml', '¶¼«~', 12, 25, 365, '¨Ó¦Û¥_¬ü¬Ã¶Q¡y½¯¶V²ù¡z',1),
-    ('ª÷¨®§B®Ô©@°Ø240ml', '¶¼«~', 12, 25, 210, '§B®Ô©@°Ø¬O±N¾A¶qªº©@°Ø¡B¤û¥¤¡B¬â¿}½Õ¦X¦Ó¦¨ªº½Õ¦X©@°Ø¡A¥B§B®Ô©@°Ø¬O¥Ñª÷¨®¤½¥q¦Û¦æª£¨§¡BµÑ¨ú¡A¨ì¸ËÅø¥þµ{¤@³e§@·~¥Í²£ªº°ª«~½è½Õ¦X©@°Ø¡A±N³Ì¦nªº«~½è§e²{µ¹®ø¶OªÌ¡A§N¼ö¶¼¥Î¬Ò¾A©y¡C',1),
-    ('[¤Õ³¶]­ì¨ý»æ°®75g', '¹s­¹', 14, 29, 60, '±q¤p³­¦ñµÛ§Ú­Ìªø¤jªº¤Õ³¶»æ°®¡A§t¦³¤j¤jªºÀç¾i¡A¤@¤ù¤ù³£¯à±a¨Ó¤p¤pªºº¡¨¬©¯ºÖ·P',0),
-    ('½¼¨ý¥ý-­ì¨ý115g', '¹s­¹', 16, 35, 60, '­»¯Ü¥i¤f¡B¦Ñ¤Ö«w©y¡A³Ì·s¯M°ö§Þ³N»s¦¨¡A«Dªo¬µ«~¡A½T«O¤HÅé°·±d¡A·sÂA¥þ½¼»s¦¨¡A¦³ÂA½¼ªº­·¨ý¡B§tÂ×´Iªº¶t½è',1),
-    ('¥x°sªáÀJÂûÄÑ(¸J)200g', 'ªwÄÑ', 25, 49, 60, '¨Ï¥Î¥xÆWµÒ°s¤½¥q¿í´`¥jªkÆC»sªº®Æ²zªáÀJ°s¡A·f°t¿@­§ÃÄ¿¯­·¨ý´öÀY¡A­»Qªº',1),
-	  ('ºû¤O¬µÂæÄÑ(¸J)90g', 'ªwÄÑ', 12, 25, '60', 'ºû¤O¬µÂæÄÑ¬O®a³ë¤á¾åªº¦Ñ«~µP¦Ñ¤f¨ý¡Aºû¤O¬µÂæ½Õ¤§©Ò¥H¦n¦Y¦n½Õ²z¡A¯¦³Z¦b©ó­ì®Æ§¹¥þ±Ä¥Î¼ô¦¨ªº¨§Ã¤»s¦¨¨§Ã¤Âæ¡A¦bÃ­©wªº·Å·Ã«×±±¨î¤U¡A¨äµo»Ãªº®É¶¡¡B·Å«×¬O¦¨¬°¬ü¨ýªº³Ì¤j¯µ³Z¡C¥Á°ê¤»¤Q¤C¦~ºû¤O¬µÂæÄÑ°Ý¥@¡A¤@¥]¨â¦Y¡Aªþ´öªº¦Yªk¥ß¨è¾ÛÀò®ø¶OªÌªº¤ß¡A¬°°ê¤º¡u³t­¹°®ÄÑ¤§²Ä¤@«~µP¡v¡C',0),
-    ('º¡º~¤jÀ\»Äµæ¤û¦×©ÕÄÑ', '¼ô­¹', 50, 109, '3', '°í«ù¿ï¥Î¬Ãµ}¤û«e¸x¦×¡A·f°t¦Ê¦~¥jªk¯µ»s»Äµæ¡A³n¹à¤û¦×»P­»¯Ü»Äµæªº§¹¬ü¿Ä¦X¡A¦A©Õ¤W­»®ð¤Q¨¬ªº¤ûªo©M»¶¨§Ã¤Âæ¡A¤~¯u¥¿§¹¾ã¤F¤@¸J¤û¦×ÄÑªºÆF»î¡I',1),
-    ('¼ö¨º¨ÈÃ¹°Ç¸q¤j§QÄÑ', '¼ô­¹', 45, 89, '3', '³o¹D¤j¤H¤p«Ä³£·Rªº¼ö¨º¨ÈÃ¹°Ç¸q¤j§QÄÑ¡A¤£¦ý¯à¦Y¨ì«CÂæªº¿@­§¤f·P¡Bµð¸ÄªºÂA¨ý¡A»[¨ý©M¥Õ°s§ó¦³´£­»ªº§@¥Î¡CÁöµM¬O§Q¥Î¤è«K¨ú±oªº¤E¼h¶ð¨Ó¨ú¥N¥¿²Îªº²¢Ã¹°Ç',1)
+    ('çµ±ä¸€éº¥é¦™å¥¶èŒ¶TP375ml', 'é£²å“', 8, 15, 365, 'é†‡åŽšç´…èŒ¶çµåˆå¤§éº¥é¦™æ°£èˆ‡ä¹³ç²‰èª¿é…ï¼Œå‘ˆç¾å…·ç¨ç‰¹å¤§éº¥åŠç„¦ç³–é¢¨å‘³çš„å¥¶èŒ¶',1),
+    ('çµ±ä¸€éº¥é¦™ç¶ èŒ¶TP375ml', 'é£²å“', 8, 15, 365, 'é¸ç”¨ç”œé¦™ç‰¹è‰²çš„ç„™é¦™ç¶ èŒ¶è‘‰ï¼Œèƒå–é†‡åŽšç”œé¦™èŒ¶æ±ï¼Œæ­é…å¤§éº¥ç„™ç‚’ç”œé¦™ï¼Œå‘ˆç¾ç¨ç‰¹å¤§éº¥é¢¨å‘³çš„ç¶ èŒ¶',1),
+    ('[å„ªé®®æ²›]è”“è¶ŠèŽ“ç¶œåˆæžœæ±500ml', 'é£²å“', 12, 25, 365, 'ä¾†è‡ªåŒ—ç¾Žçè²´ã€Žè”“è¶ŠèŽ“ã€',1),
+    ('é‡‘è»Šä¼¯æœ—å’–å•¡240ml', 'é£²å“', 12, 25, 210, 'ä¼¯æœ—å’–å•¡æ˜¯å°‡é©é‡çš„å’–å•¡ã€ç‰›å¥¶ã€ç ‚ç³–èª¿åˆè€Œæˆçš„èª¿åˆå’–å•¡ï¼Œä¸”ä¼¯æœ—å’–å•¡æ˜¯ç”±é‡‘è»Šå…¬å¸è‡ªè¡Œç‚’è±†ã€èƒå–ï¼Œåˆ°è£ç½å…¨ç¨‹ä¸€è²«ä½œæ¥­ç”Ÿç”¢çš„é«˜å“è³ªèª¿åˆå’–å•¡ï¼Œå°‡æœ€å¥½çš„å“è³ªå‘ˆç¾çµ¦æ¶ˆè²»è€…ï¼Œå†·ç†±é£²ç”¨çš†é©å®œã€‚',1),
+    ('[å­”é›€]åŽŸå‘³é¤…ä¹¾75g', 'é›¶é£Ÿ', 14, 29, 60, 'å¾žå°é™ªä¼´è‘—æˆ‘å€‘é•·å¤§çš„å­”é›€é¤…ä¹¾ï¼Œå«æœ‰å¤§å¤§çš„ç‡Ÿé¤Šï¼Œä¸€ç‰‡ç‰‡éƒ½èƒ½å¸¶ä¾†å°å°çš„æ»¿è¶³å¹¸ç¦æ„Ÿ',0),
+    ('è¦å‘³å…ˆ-åŽŸå‘³115g', 'é›¶é£Ÿ', 16, 35, 60, 'é¦™è„†å¯å£ã€è€å°‘å’¸å®œï¼Œæœ€æ–°çƒ˜åŸ¹æŠ€è¡“è£½æˆï¼Œéžæ²¹ç‚¸å“ï¼Œç¢ºä¿äººé«”å¥åº·ï¼Œæ–°é®®å…¨è¦è£½æˆï¼Œæœ‰é®®è¦çš„é¢¨å‘³ã€å«è±å¯Œçš„éˆ£è³ª',1),
+    ('å°é…’èŠ±é›•é›žéºµ(ç¢—)200g', 'æ³¡éºµ', 25, 49, 60, 'ä½¿ç”¨å°ç£è¸é…’å…¬å¸éµå¾ªå¤æ³•é‡€è£½çš„æ–™ç†èŠ±é›•é…’ï¼Œæ­é…æ¿ƒéƒè—¥è†³é¢¨å‘³æ¹¯é ­ï¼Œé¦™Qçš„',1),
+	  ('ç¶­åŠ›ç‚¸é†¬éºµ(ç¢—)90g', 'æ³¡éºµ', 12, 25, '60', 'ç¶­åŠ›ç‚¸é†¬éºµæ˜¯å®¶å–»æˆ¶æ›‰çš„è€å“ç‰Œè€å£å‘³ï¼Œç¶­åŠ›ç‚¸é†¬èª¿ä¹‹æ‰€ä»¥å¥½åƒå¥½èª¿ç†ï¼Œç¥•è¨£åœ¨æ–¼åŽŸæ–™å®Œå…¨æŽ¡ç”¨ç†Ÿæˆçš„è±†ç“£è£½æˆè±†ç“£é†¬ï¼Œåœ¨ç©©å®šçš„æº«æº¼åº¦æŽ§åˆ¶ä¸‹ï¼Œå…¶ç™¼é…µçš„æ™‚é–“ã€æº«åº¦æ˜¯æˆç‚ºç¾Žå‘³çš„æœ€å¤§ç§˜è¨£ã€‚æ°‘åœ‹å…­åä¸ƒå¹´ç¶­åŠ›ç‚¸é†¬éºµå•ä¸–ï¼Œä¸€åŒ…å…©åƒï¼Œé™„æ¹¯çš„åƒæ³•ç«‹åˆ»æ“„ç²æ¶ˆè²»è€…çš„å¿ƒï¼Œç‚ºåœ‹å…§ã€Œé€Ÿé£Ÿä¹¾éºµä¹‹ç¬¬ä¸€å“ç‰Œã€ã€‚',0),
+    ('æ»¿æ¼¢å¤§é¤é…¸èœç‰›è‚‰æ‹Œéºµ', 'ç†Ÿé£Ÿ', 50, 109, '3', 'å …æŒé¸ç”¨çç¨€ç‰›å‰è…±è‚‰ï¼Œæ­é…ç™¾å¹´å¤æ³•ç§˜è£½é…¸èœï¼Œè»Ÿå«©ç‰›è‚‰èˆ‡é¦™è„†é…¸èœçš„å®Œç¾Žèžåˆï¼Œå†æ‹Œä¸Šé¦™æ°£åè¶³çš„ç‰›æ²¹å’Œè¾£è±†ç“£é†¬ï¼Œæ‰çœŸæ­£å®Œæ•´äº†ä¸€ç¢—ç‰›è‚‰éºµçš„éˆé­‚ï¼',1),
+    ('ç†±é‚£äºžç¾…å‹’ç¾©å¤§åˆ©éºµ', 'ç†Ÿé£Ÿ', 45, 89, '3', 'é€™é“å¤§äººå°å­©éƒ½æ„›çš„ç†±é‚£äºžç¾…å‹’ç¾©å¤§åˆ©éºµï¼Œä¸ä½†èƒ½åƒåˆ°é’é†¬çš„æ¿ƒéƒå£æ„Ÿã€è›¤èœŠçš„é®®å‘³ï¼Œè’œå‘³å’Œç™½é…’æ›´æœ‰æé¦™çš„ä½œç”¨ã€‚é›–ç„¶æ˜¯åˆ©ç”¨æ–¹ä¾¿å–å¾—çš„ä¹å±¤å¡”ä¾†å–ä»£æ­£çµ±çš„ç”œç¾…å‹’',1)
 
 CREATE TABLE productImage (
+    id INT PRIMARY KEY IDENTITY(1,1),
     productId INT NOT NULL,
     imageUrl VARCHAR(255),
     FOREIGN KEY (productId) REFERENCES product(productId))
@@ -96,16 +97,16 @@ CREATE TABLE productReview (
 
 INSERT INTO productReview (memberId, productId, stars, content)
 VALUES 
-    (1, 1, 5, '³Á­»¥¤¯ù¯u¦n³Ü'),
-    (1, 2, 5, '³Á­»ºñ¯ù¯u¦n³Ü'),
-    (2, 1, 1, '³Á­»¥¤¯ù¯uÃø³Ü'),
-    (2, 2, 1, '³Á­»ºñ¯ù¯uÃø³Ü'),
-    (1, 10, 5, '¸q¤j§QÄÑ¸U·³'),
-    (6, 7, 5, 'ªáÀJÂûÄÑ´Î´Î'),
-    (7, 8, 1, 'ºû¤O¯uªº¦³ÂIºG'),
-    (5, 9, 5, '¤û¦×ÄÑ¦n¦n¦Y'),
-    (4, 5, 5, '¤Õ³¶´N¬Oµ£¦~ªº¦^¾Ð'),
-    (3, 4, 5, '©@°ØÀ°§U§Ú´Á¤¤¦Ò²Ä¤@¦W');
+    (1, 1, 5, 'éº¥é¦™å¥¶èŒ¶çœŸå¥½å–'),
+    (1, 2, 5, 'éº¥é¦™ç¶ èŒ¶çœŸå¥½å–'),
+    (2, 1, 1, 'éº¥é¦™å¥¶èŒ¶çœŸé›£å–'),
+    (2, 2, 1, 'éº¥é¦™ç¶ èŒ¶çœŸé›£å–'),
+    (1, 10, 5, 'ç¾©å¤§åˆ©éºµè¬æ­²'),
+    (6, 7, 5, 'èŠ±é›•é›žéºµæ£’æ£’'),
+    (7, 8, 1, 'ç¶­åŠ›çœŸçš„æœ‰é»žæ…˜'),
+    (5, 9, 5, 'ç‰›è‚‰éºµå¥½å¥½åƒ'),
+    (4, 5, 5, 'å­”é›€å°±æ˜¯ç«¥å¹´çš„å›žæ†¶'),
+    (3, 4, 5, 'å’–å•¡å¹«åŠ©æˆ‘æœŸä¸­è€ƒç¬¬ä¸€å');
 
 CREATE TABLE  stores(
 	storeId INT IDENTITY(1,1) PRIMARY KEY not null,
@@ -117,16 +118,16 @@ CREATE TABLE  stores(
 	tel  NVARCHAR(100)
 );
 INSERT INTO stores
-VALUES ('¤ö«z©±','320','®ç¶é¥«','¤¤Ãc°Ï','¤j¤¯¤Gµó¢°¢¶¸¹¢°¼Ó','02-1234567'),
-('¦èÂX©±','100','¥x¥_¥«','¤¤¥¿°Ï','¤K¼w¸ô¤@¬q¢³¢²«Ñ¢±¸¹','02-7654321'),
-  ('·Ë®a®a©±','207','·s¥_¥«','¸U¨½°Ï','¤jÄP¨½³»ªÀ¢°¸¹','03-1234567'),
-  ('Äåªá©±','150','·s¥_¥«','¥Ã©M°Ï','¥Ã©M¸ô¢·¢¸¸¹','02-9876543'),
-  ('ºñ³¥©±','220','¥x¥_¥«','¤j¦w°Ï','«H¸q¸ô¥|¬q¢°¢±¢²¸¹','02-3456789'),
-  ('¬õ½¬©±','420','°ª¶¯¥«','»ñ¤s°Ï','¤å¿Å¸ô¢±¢²¢³¸¹','07-6543210'),
-  ('ÂÅ¤Ñ©±','330','·s¦Ë¥«','ªF°Ï','¥Á±Ú¸ô¢¶¢·¸¹','03-1357924'),
-  ('ª÷Às©±','510','¥x¤¤¥«','¥_°Ï','°·¦æ¸ô¢°¢°¢°¸¹','04-5678901'),
-  ('¥Õ¶³©±','430','¥x«n¥«','¦w«n°Ï','¦w¤¤¸ô¢´¢µ¸¹','06-7890123'),
-  ('«C¤s©±','410','¹ü¤Æ¿¤','¹ü¤Æ¥«','¥ú´_¸ô¢±¢±¢±¸¹','04-3210987');
+VALUES ('çˆªå“‡åº—','320','æ¡ƒåœ’å¸‚','ä¸­å£¢å€','å¤§ä»äºŒè¡—ï¼‘ï¼—è™Ÿï¼‘æ¨“','02-1234567'),
+('è¥¿æ“´åº—','100','å°åŒ—å¸‚','ä¸­æ­£å€','å…«å¾·è·¯ä¸€æ®µï¼”ï¼“å··ï¼’è™Ÿ','02-7654321'),
+  ('æºªå®¶å®¶åº—','207','æ–°åŒ—å¸‚','è¬é‡Œå€','å¤§éµ¬é‡Œé ‚ç¤¾ï¼‘è™Ÿ','03-1234567'),
+  ('æ«»èŠ±åº—','150','æ–°åŒ—å¸‚','æ°¸å’Œå€','æ°¸å’Œè·¯ï¼˜ï¼™è™Ÿ','02-9876543'),
+  ('ç¶ é‡Žåº—','220','å°åŒ—å¸‚','å¤§å®‰å€','ä¿¡ç¾©è·¯å››æ®µï¼‘ï¼’ï¼“è™Ÿ','02-3456789'),
+  ('ç´…è“®åº—','420','é«˜é›„å¸‚','é³³å±±å€','æ–‡è¡¡è·¯ï¼’ï¼“ï¼”è™Ÿ','07-6543210'),
+  ('è—å¤©åº—','330','æ–°ç«¹å¸‚','æ±å€','æ°‘æ—è·¯ï¼—ï¼˜è™Ÿ','03-1357924'),
+  ('é‡‘é¾åº—','510','å°ä¸­å¸‚','åŒ—å€','å¥è¡Œè·¯ï¼‘ï¼‘ï¼‘è™Ÿ','04-5678901'),
+  ('ç™½é›²åº—','430','å°å—å¸‚','å®‰å—å€','å®‰ä¸­è·¯ï¼•ï¼–è™Ÿ','06-7890123'),
+  ('é’å±±åº—','410','å½°åŒ–ç¸£','å½°åŒ–å¸‚','å…‰å¾©è·¯ï¼’ï¼’ï¼’è™Ÿ','04-3210987');
 
 CREATE TABLE storeBuy(
 	purchaseId INT IDENTITY(1,1) PRIMARY KEY not null,	
@@ -225,16 +226,16 @@ CREATE TABLE groupBuy (
 );
 
 INSERT INTO groupBuy (productId, storeId, price, targetQuantity, nowQuantity, orderDate, arrivalDate, endDate, groupBuyStatus) VALUES
-(1, 1, 14, 10, 10, '2024-06-01', NULL, NULL, '¤wµ²³æ'),
-(1, 2, 14, 10, 10, '2024-05-01', '2024-05-10', '2024-05-13', '¤wµ²§ô'),
-(1, 3, 14, 10, 10, '2024-05-31', '2024-06-03', '2024-06-06', '¤w¨ì³f'),
-(1, 4, 12, 20, 0, '2024-05-10', NULL, NULL, '¤£¦¨¥ß'),
-(1, 5, 14, 15, 0,  '2024-06-15', NULL, NULL, '¥¼¶}¹Î'),
-(2, 6, 14, 10, 0, '2024-05-27', NULL, NULL, '¤£¦¨¥ß'),
-(2, 7, 14, 10, 0, '2024-06-07', NULL, NULL, '¶}¹Î¤¤'),
-(2, 8, 12, 20, 0, '2024-06-08', NULL, NULL, '¶}¹Î¤¤'),
-(2, 9, 11, 30, 0, '2024-06-06', NULL, NULL, '¥¼¶}¹Î'),
-(2, 10, 12, 25,  0,  '2024-06-07', NULL, NULL, '¶}¹Î¤¤');
+(1, 1, 14, 10, 10, '2024-06-01', NULL, NULL, 'å·²çµå–®'),
+(1, 2, 14, 10, 10, '2024-05-01', '2024-05-10', '2024-05-13', 'å·²çµæŸ'),
+(1, 3, 14, 10, 10, '2024-05-31', '2024-06-03', '2024-06-06', 'å·²åˆ°è²¨'),
+(1, 4, 12, 20, 0, '2024-05-10', NULL, NULL, 'ä¸æˆç«‹'),
+(1, 5, 14, 15, 0,  '2024-06-15', NULL, NULL, 'æœªé–‹åœ˜'),
+(2, 6, 14, 10, 0, '2024-05-27', NULL, NULL, 'ä¸æˆç«‹'),
+(2, 7, 14, 10, 0, '2024-06-07', NULL, NULL, 'é–‹åœ˜ä¸­'),
+(2, 8, 12, 20, 0, '2024-06-08', NULL, NULL, 'é–‹åœ˜ä¸­'),
+(2, 9, 11, 30, 0, '2024-06-06', NULL, NULL, 'æœªé–‹åœ˜'),
+(2, 10, 12, 25,  0,  '2024-06-07', NULL, NULL, 'é–‹åœ˜ä¸­');
 
 CREATE TABLE groupMember (
 	groupMemberId	INT IDENTITY(1,1),
@@ -250,16 +251,16 @@ CREATE TABLE groupMember (
 );
 
 INSERT INTO groupMember (groupBuyId, memberId, quantity, total, pickupStatus) VALUES
-(1, 1, 3, 30, '¤w­qÁÊ'),
-(1, 2, 3, 30, '¤w­qÁÊ'),
-(1, 3, 4, 40, '¤w­qÁÊ'),
-(2, 4, 3, 45, '¤w¨ú³f'),
-(2, 5, 3, 45, '¤w¨ú³f'),
-(2, 6, 4, 60, '¥¼¨ú³f'),
-(3, 7, 3, 60, '«Ý¨ú³f'),
-(3, 8, 3, 60, '«Ý¨ú³f'),
-(3, 9, 4, 80, '¤w¨ú³f'),
-(3, 10, 2, 40, '¤w§R°£');
+(1, 1, 3, 30, 'å·²è¨‚è³¼'),
+(1, 2, 3, 30, 'å·²è¨‚è³¼'),
+(1, 3, 4, 40, 'å·²è¨‚è³¼'),
+(2, 4, 3, 45, 'å·²å–è²¨'),
+(2, 5, 3, 45, 'å·²å–è²¨'),
+(2, 6, 4, 60, 'æœªå–è²¨'),
+(3, 7, 3, 60, 'å¾…å–è²¨'),
+(3, 8, 3, 60, 'å¾…å–è²¨'),
+(3, 9, 4, 80, 'å·²å–è²¨'),
+(3, 10, 2, 40, 'å·²åˆªé™¤');
 
 CREATE TABLE amountDiscount (
     discountId INT PRIMARY KEY IDENTITY(1,1),
@@ -284,29 +285,29 @@ CREATE TABLE productDiscount (
 
 INSERT INTO amountDiscount (discountName, minPurchaseAmount, discountPercentage, startDate, endDate,isActive)
 VALUES 
-    ('·s¦~¯S´f', 200, 5, '2024-01-01', '2024-01-31',1),
-    ('·M¤H¸`', 300, 10, '2024-04-01', '2024-04-01',1),
-    ('¥À¿Ë¸`', 400, 15, '2024-05-09', '2024-05-09',1),
-    ('®L©u¨gÅw', 200, 5, '2024-06-01', '2024-06-30',1),
-    ('¶g¦~¼y', 500, 25, '2024-07-01', '2024-07-15',1),
-    ('¤÷¿Ë¸`', 888, 12, '2024-08-01', '2024-08-08',1),
-    ('¤C¤iÀu´f', 520, 10, '2024-08-14', '2024-08-14',1),
-    ('Âù¤Q¤@¯S´f', 1111, 30, '2024-11-01', '2024-11-11',1),
-    ('¸t½Ï§Ö¼Ö', 500, 5, '2024-12-01', '2024-12-25',1),
-    ('¦~²×¼úª÷', 1000, 20,'2024-12-26','2024-12-31',1);
+    ('æ–°å¹´ç‰¹æƒ ', 200, 5, '2024-01-01', '2024-01-31',1),
+    ('æ„šäººç¯€', 300, 10, '2024-04-01', '2024-04-01',1),
+    ('æ¯è¦ªç¯€', 400, 15, '2024-05-09', '2024-05-09',1),
+    ('å¤å­£ç‹‚æ­¡', 200, 5, '2024-06-01', '2024-06-30',1),
+    ('é€±å¹´æ…¶', 500, 25, '2024-07-01', '2024-07-15',1),
+    ('çˆ¶è¦ªç¯€', 888, 12, '2024-08-01', '2024-08-08',1),
+    ('ä¸ƒå¤•å„ªæƒ ', 520, 10, '2024-08-14', '2024-08-14',1),
+    ('é›™åä¸€ç‰¹æƒ ', 1111, 30, '2024-11-01', '2024-11-11',1),
+    ('è–èª•å¿«æ¨‚', 500, 5, '2024-12-01', '2024-12-25',1),
+    ('å¹´çµ‚çŽé‡‘', 1000, 20,'2024-12-26','2024-12-31',1);
 
 INSERT INTO productDiscount (discountName, productId, discountPercentage, startDate, endDate ,isActive)
 VALUES 
-    ('²Î¤@³Á­»¥¤¯ùTP375mlÀu´f', 1, 5, '2024-05-01', '2024-05-31',1),
-    ('²Î¤@³Á­»ºñ¯ùTP375mlÀu´f', 2, 8, '2024-05-01', '2024-05-31',1),
-    ('[ÀuÂA¨K]½¯¶V²ùºî¦XªG¥Ä500mlÀu´f', 3, 10, '2024-05-01', '2024-05-31',1),
-    ('ª÷¨®§B®Ô©@°Ø240mlÀu´f', 4, 12, '2024-05-01', '2024-05-31',1),
-    ('[¤Õ³¶]­ì¨ý»æ°®75gÀu´f', 5, 8, '2024-05-01', '2024-05-31',1),
-    ('½¼¨ý¥ý-­ì¨ý115gÀu´f', 6, 10, '2024-05-01', '2024-05-31',1),
-    ('¥x°sªáÀJÂûÄÑ(¸J)200gÀu´f', 7, 15, '2024-05-01', '2024-05-31',1),
-    ('ºû¤O¬µÂæÄÑ(¸J)90gÀu´f', 8, 10, '2024-05-01', '2024-05-31',1),
-    ('º¡º~¤jÀ\»Äµæ¤û¦×©ÕÄÑÀu´f', 9, 20, '2024-05-01', '2024-05-31',1),
-    ('¼ö¨º¨ÈÃ¹°Ç¸q¤j§QÄÑÀu´f', 10, 18, '2024-05-01', '2024-05-31',1);
+    ('çµ±ä¸€éº¥é¦™å¥¶èŒ¶TP375mlå„ªæƒ ', 1, 5, '2024-05-01', '2024-05-31',1),
+    ('çµ±ä¸€éº¥é¦™ç¶ èŒ¶TP375mlå„ªæƒ ', 2, 8, '2024-05-01', '2024-05-31',1),
+    ('[å„ªé®®æ²›]è”“è¶ŠèŽ“ç¶œåˆæžœæ±500mlå„ªæƒ ', 3, 10, '2024-05-01', '2024-05-31',1),
+    ('é‡‘è»Šä¼¯æœ—å’–å•¡240mlå„ªæƒ ', 4, 12, '2024-05-01', '2024-05-31',1),
+    ('[å­”é›€]åŽŸå‘³é¤…ä¹¾75gå„ªæƒ ', 5, 8, '2024-05-01', '2024-05-31',1),
+    ('è¦å‘³å…ˆ-åŽŸå‘³115gå„ªæƒ ', 6, 10, '2024-05-01', '2024-05-31',1),
+    ('å°é…’èŠ±é›•é›žéºµ(ç¢—)200gå„ªæƒ ', 7, 15, '2024-05-01', '2024-05-31',1),
+    ('ç¶­åŠ›ç‚¸é†¬éºµ(ç¢—)90gå„ªæƒ ', 8, 10, '2024-05-01', '2024-05-31',1),
+    ('æ»¿æ¼¢å¤§é¤é…¸èœç‰›è‚‰æ‹Œéºµå„ªæƒ ', 9, 20, '2024-05-01', '2024-05-31',1),
+    ('ç†±é‚£äºžç¾…å‹’ç¾©å¤§åˆ©éºµå„ªæƒ ', 10, 18, '2024-05-01', '2024-05-31',1);
 
 CREATE TABLE admins (
     adminId INT PRIMARY KEY,
@@ -318,35 +319,35 @@ CREATE TABLE admins (
 );
 
 INSERT INTO admins (adminId, adminuserName, adminPassword, adminTitle,storeId) VALUES
-(1, 'aaa123', 'aaa123', '«á¥x¨t²ÎºÞ²z­û',NULL),
-(2, 'bbb123', 'bbb123', '°Ó«~¨t²ÎºÞ²z­û',NULL),
-(3, 'ccc123', 'ccc123', '©±¾Q¨t²ÎºÞ²z­û',NULL),
-(4, 'ddd123', 'ddd123', '¬¡°Ê¨t²ÎºÞ²z­û',NULL),
-(5, 'eee123', 'eee123','¹ÎÁÊ¨t²ÎºÞ²z­û',NULL),
-(6, 'fff123', 'fff123','ÁÊª«¨®¨t²ÎºÞ²z­û',NULL),
-(7, 'ggg123', 'ggg123','·|­û¨t²ÎºÞ²z­û',NULL),
-(8, 'hhh123', 'hhh123','©±ªø',1);
+(1, 'aaa123', 'aaa123', 'å¾Œå°ç³»çµ±ç®¡ç†å“¡',NULL),
+(2, 'bbb123', 'bbb123', 'å•†å“ç³»çµ±ç®¡ç†å“¡',NULL),
+(3, 'ccc123', 'ccc123', 'åº—é‹ªç³»çµ±ç®¡ç†å“¡',NULL),
+(4, 'ddd123', 'ddd123', 'æ´»å‹•ç³»çµ±ç®¡ç†å“¡',NULL),
+(5, 'eee123', 'eee123','åœ˜è³¼ç³»çµ±ç®¡ç†å“¡',NULL),
+(6, 'fff123', 'fff123','è³¼ç‰©è»Šç³»çµ±ç®¡ç†å“¡',NULL),
+(7, 'ggg123', 'ggg123','æœƒå“¡ç³»çµ±ç®¡ç†å“¡',NULL),
+(8, 'hhh123', 'hhh123','åº—é•·',1);
 
 
 CREATE TABLE orders (
-    orderId INT PRIMARY KEY IDENTITY(1,1),                -- ­q³æ½s¸¹
-    memberId INT NOT NULL,                                -- ·|­û±b¸¹
+    orderId INT PRIMARY KEY IDENTITY(1,1),                -- è¨‚å–®ç·¨è™Ÿ
+    memberId INT NOT NULL,                                -- æœƒå“¡å¸³è™Ÿ
 	productId INT NOT NULL,
 	quantity INT,
-    orderDate DATE NOT NULL,                              -- ­q³æ¤é´Á
-    pointUse INT NOT NULL DEFAULT 0,                      -- ÂI¼Æ¨Ï¥Î
-	amountDiscountId INT,                                -- ²£«~§é¦©½s¸¹
+    orderDate DATE NOT NULL,                              -- è¨‚å–®æ—¥æœŸ
+    pointUse INT NOT NULL DEFAULT 0,                      -- é»žæ•¸ä½¿ç”¨
+	amountDiscountId INT,                                -- ç”¢å“æŠ˜æ‰£ç·¨è™Ÿ
 	productDiscountId INT,
-    storeId INT,                                          -- ¨ú³f©±¾Q
-    total DECIMAL(10, 2) NOT NULL,                        -- ­q³æÁ`ª÷ÃB
-    discountMoney DECIMAL(10, 2) NOT NULL DEFAULT 0,      -- §é¦©ª÷ÃB
-    status VARCHAR(50) NOT NULL,                          -- ­q³æ·í«eª¬ºA
-    paymentMethod VARCHAR(50) NOT NULL,                   -- ¥I´Ú¤èªk
-    orderSuccessDate DATE,                                -- ­q³æ¦¨¥\¤é´Á
+    storeId INT,                                          -- å–è²¨åº—é‹ª
+    total DECIMAL(10, 2) NOT NULL,                        -- è¨‚å–®ç¸½é‡‘é¡
+    discountMoney DECIMAL(10, 2) NOT NULL DEFAULT 0,      -- æŠ˜æ‰£é‡‘é¡
+    status VARCHAR(50) NOT NULL,                          -- è¨‚å–®ç•¶å‰ç‹€æ…‹
+    paymentMethod VARCHAR(50) NOT NULL,                   -- ä»˜æ¬¾æ–¹æ³•
+    orderSuccessDate DATE,                                -- è¨‚å–®æˆåŠŸæ—¥æœŸ
 	pickupDate DATE,
-    unpaidCount INT NOT NULL DEFAULT 0,                   -- ¥¼¥I´Ú¦¸¼Æ
-    pointGet INT,                                         -- Àò±oÂI¼Æ
-    finalAmount DECIMAL(10, 2) NOT NULL,                  -- ³Ì²×¤ä¥Iª÷ÃB	
+    unpaidCount INT NOT NULL DEFAULT 0,                   -- æœªä»˜æ¬¾æ¬¡æ•¸
+    pointGet INT,                                         -- ç²å¾—é»žæ•¸
+    finalAmount DECIMAL(10, 2) NOT NULL,                  -- æœ€çµ‚æ”¯ä»˜é‡‘é¡	
     FOREIGN KEY (memberId) REFERENCES members(memberId),
     FOREIGN KEY (storeId) REFERENCES stores(storeId)
 );
@@ -354,27 +355,27 @@ CREATE TABLE orders (
 
 INSERT INTO orders (memberId, productId, quantity, orderDate, pointUse, amountDiscountId, productDiscountId, storeId, total, discountMoney, status, paymentMethod, orderSuccessDate, pickupDate, unpaidCount, pointGet, finalAmount)
 VALUES
-    (1, 1, 5, '2024-05-01', 1, 1, 1, 1, 100.00, 15.00, '¤w°e¹F', '½u¤W¤ä¥I', '2024-05-04', '2024-05-04', 0, 10, 35.00),
-    (2, 2, 2, '2024-05-02', 2, 2, 2, 2, 150.00, .00, '¤w°e¹F', '«H¥Î¥d', '2024-05-05', '2024-05-05', 0, 15, 103.00),
-    (3, 3, 3, '2024-05-03', 3, 3, 3, 3, 200.00, 50.00, '¤w°e¹F', '²{ª÷¤ä¥I', '2024-05-06', '2024-05-06', 0, 20, 120.00),
-    (4, 4, 4, '2024-05-04', 4, 4, 4, 4, 250.00, 37.50, '¤w°e¹F', '²{ª÷¤ä¥I', '2024-05-07', '2024-05-07', 1, 25, 172.50),
-    (5, 5, 5, '2024-05-05', 5, 5, 5, 5, 300.00, 82.50, '¹B°e¤¤', '«H¥Î¥d', '2024-05-08', '2024-05-08', 0, 30, 167.50),
-    (6, 6, 6, '2024-05-06', 6, 6, 6, 6, 350.00, 84.00, '¹B°e¤¤', '²{ª÷¤ä¥I', '2024-05-09', '2024-05-09', 1, 35, 206.00),
-    (7, 7, 7, '2024-05-07', 7, 7, 7, 7, 400.00, 140.00, '¤wµo³f', '«H¥Î¥d', '2024-05-10', '2024-05-10', 1, 40, 190.00),
-    (8, 8, 8, '2024-05-08', 8, 8, 8, 8, 450.00, 156.60, '¤wµo³f', '²{ª÷¤ä¥I', '2024-05-11', '2024-05-11', 2, 45, 213.40),
-    (9, 9, 9, '2024-05-09', 9, 9, 9, 9, 500.00, 55.00, '¤w°e¹F', '²{ª÷¤ä¥I', '2024-05-12', '2024-05-12', 0, 50, 355.00),
-    (10, 10, 10, '2024-05-10', 10, 10, 10, 10, 550.00, 165.00, '¤w°e¹F', '²{ª÷¤ä¥I', '2024-05-13', '2024-05-13', 0, 55, 285.00);
+    (1, 1, 5, '2024-05-01', 1, 1, 1, 1, 100.00, 15.00, 'å·²é€é”', 'ç·šä¸Šæ”¯ä»˜', '2024-05-04', '2024-05-04', 0, 10, 35.00),
+    (2, 2, 2, '2024-05-02', 2, 2, 2, 2, 150.00, .00, 'å·²é€é”', 'ä¿¡ç”¨å¡', '2024-05-05', '2024-05-05', 0, 15, 103.00),
+    (3, 3, 3, '2024-05-03', 3, 3, 3, 3, 200.00, 50.00, 'å·²é€é”', 'ç¾é‡‘æ”¯ä»˜', '2024-05-06', '2024-05-06', 0, 20, 120.00),
+    (4, 4, 4, '2024-05-04', 4, 4, 4, 4, 250.00, 37.50, 'å·²é€é”', 'ç¾é‡‘æ”¯ä»˜', '2024-05-07', '2024-05-07', 1, 25, 172.50),
+    (5, 5, 5, '2024-05-05', 5, 5, 5, 5, 300.00, 82.50, 'é‹é€ä¸­', 'ä¿¡ç”¨å¡', '2024-05-08', '2024-05-08', 0, 30, 167.50),
+    (6, 6, 6, '2024-05-06', 6, 6, 6, 6, 350.00, 84.00, 'é‹é€ä¸­', 'ç¾é‡‘æ”¯ä»˜', '2024-05-09', '2024-05-09', 1, 35, 206.00),
+    (7, 7, 7, '2024-05-07', 7, 7, 7, 7, 400.00, 140.00, 'å·²ç™¼è²¨', 'ä¿¡ç”¨å¡', '2024-05-10', '2024-05-10', 1, 40, 190.00),
+    (8, 8, 8, '2024-05-08', 8, 8, 8, 8, 450.00, 156.60, 'å·²ç™¼è²¨', 'ç¾é‡‘æ”¯ä»˜', '2024-05-11', '2024-05-11', 2, 45, 213.40),
+    (9, 9, 9, '2024-05-09', 9, 9, 9, 9, 500.00, 55.00, 'å·²é€é”', 'ç¾é‡‘æ”¯ä»˜', '2024-05-12', '2024-05-12', 0, 50, 355.00),
+    (10, 10, 10, '2024-05-10', 10, 10, 10, 10, 550.00, 165.00, 'å·²é€é”', 'ç¾é‡‘æ”¯ä»˜', '2024-05-13', '2024-05-13', 0, 55, 285.00);
 
 
 
 
 
---­q³æ¸Ô±¡ªí
+--è¨‚å–®è©³æƒ…è¡¨
 CREATE TABLE orderDetails (
-    orderDetailId INT PRIMARY KEY IDENTITY(1,1),              --­q³æ¸Ô±¡¶µ¥Ø½s¸¹
-    orderId INT NOT NULL,                                     --­q³æ½s¸¹
-    productId INT NOT NULL,                                   --²£«~½s¸¹
-    quantity INT NOT NULL,                                     --¼Æ¶q
+    orderDetailId INT PRIMARY KEY IDENTITY(1,1),              --è¨‚å–®è©³æƒ…é …ç›®ç·¨è™Ÿ
+    orderId INT NOT NULL,                                     --è¨‚å–®ç·¨è™Ÿ
+    productId INT NOT NULL,                                   --ç”¢å“ç·¨è™Ÿ
+    quantity INT NOT NULL,                                     --æ•¸é‡
    
    
     --FOREIGN KEY (order_id) REFERENCES orders(order_id),         
