@@ -65,7 +65,7 @@ VALUES
     ('熱那亞羅勒義大利麵', '熟食', 45, 89, '3', '這道大人小孩都愛的熱那亞羅勒義大利麵，不但能吃到青醬的濃郁口感、蛤蜊的鮮味，蒜味和白酒更有提香的作用。雖然是利用方便取得的九層塔來取代正統的甜羅勒',1)
 
 CREATE TABLE productImage (
-    id INT PRIMARY KEY IDENTITY(1,1),
+    imageId INT PRIMARY KEY IDENTITY(1,1),
     productId INT NOT NULL,
     imageUrl VARCHAR(255),
     FOREIGN KEY (productId) REFERENCES product(productId))
