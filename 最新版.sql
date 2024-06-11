@@ -44,14 +44,14 @@ CREATE TABLE product (
     productName VARCHAR(100),
     productType VARCHAR(50),
     productCost INT,
-    productPrize INT,
+    productPrice INT,
     productExpirydate INT,
     productDescription TEXT,
     productPublished BIT 
     -- 0 表示未上架，1 表示已上架
 );
 
-INSERT INTO product (productName, productType, productCost, productPrize, productExpirydate, productDescription, productPublished)
+INSERT INTO product (productName, productType, productCost, productPrice, productExpirydate, productDescription, productPublished)
 VALUES 
     ('統一麥香奶茶TP375ml', '飲品', 8, 15, 365, '醇厚紅茶結合大麥香氣與乳粉調配，呈現具獨特大麥及焦糖風味的奶茶',1),
     ('統一麥香綠茶TP375ml', '飲品', 8, 15, 365, '選用甜香特色的焙香綠茶葉，萃取醇厚甜香茶汁，搭配大麥焙炒甜香，呈現獨特大麥風味的綠茶',1),
