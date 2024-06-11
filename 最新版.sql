@@ -1,19 +1,19 @@
-DROP TABLE buyDetail
-DROP TABLE groupMember
-DROP TABLE groupBuy
-DROP TABLE inventory
-DROP TABLE orderDetails
-DROP TABLE productImage
-DROP TABLE storeLike
-DROP TABLE productReview
-DROP TABLE storeBuy
-DROP TABLE orders
-DROP TABLE productDiscount
-DROP TABLE amountDiscount
-DROP TABLE product
-DROP TABLE members
-DROP TABLE admins
-DROP TABLE stores
+DROP TABLE IF EXISTS buyDetail;
+DROP TABLE IF EXISTS groupMember;
+DROP TABLE IF EXISTS groupBuy;
+DROP TABLE IF EXISTS inventory;
+DROP TABLE IF EXISTS orderDetails;
+DROP TABLE IF EXISTS productImage;
+DROP TABLE IF EXISTS storeLike;
+DROP TABLE IF EXISTS productReview;
+DROP TABLE IF EXISTS storeBuy;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS productDiscount;
+DROP TABLE IF EXISTS amountDiscount;
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS admins;
+DROP TABLE IF EXISTS stores;
 
 CREATE TABLE members (
     memberId INT PRIMARY KEY,
