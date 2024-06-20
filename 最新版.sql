@@ -331,9 +331,7 @@ INSERT INTO admins (adminId, adminuserName, adminPassword, adminTitle,storeId) V
 
 CREATE TABLE orders (
     orderId INT PRIMARY KEY IDENTITY(1,1),                -- 訂單編號
-    memberId INT NOT NULL,                                -- 會員帳號
-	productId INT NOT NULL,
-	quantity INT,
+    memberId INT NOT NULL,                                -- 會員帳號	
     orderDate DATE NOT NULL,                              -- 訂單日期
     pointUse INT NOT NULL DEFAULT 0,                      -- 點數使用
 	amountDiscountId INT,                                -- 產品折扣編號
@@ -349,22 +347,24 @@ CREATE TABLE orders (
     pointGet INT,                                         -- 獲得點數
     finalAmount DECIMAL(10, 2) NOT NULL,                  -- 最終支付金額	
     FOREIGN KEY (memberId) REFERENCES members(memberId),
-    FOREIGN KEY (storeId) REFERENCES stores(storeId)
+    FOREIGN KEY (storeId) REFERENCES stores(storeId),
+	FOREIGN KEY (amountDiscountId) REFERENCES amountDiscount(discountId),
+	FOREIGN KEY (productDiscountId) REFERENCES amountDiscount(discountId)
 );
 
 
-INSERT INTO orders (memberId, productId, quantity, orderDate, pointUse, amountDiscountId, productDiscountId, storeId, total, discountMoney, status, paymentMethod, orderSuccessDate, pickupDate, unpaidCount, pointGet, finalAmount)
+INSERT INTO orders (memberId,  orderDate, pointUse, amountDiscountId, productDiscountId, storeId, total, discountMoney, status, paymentMethod, orderSuccessDate, pickupDate, unpaidCount, pointGet, finalAmount)
 VALUES
-    (1, 1, 5, '2024-05-01', 1, 1, 1, 1, 100.00, 15.00, '已送達', '線上支付', '2024-05-04', '2024-05-04', 0, 10, 35.00),
-    (2, 2, 2, '2024-05-02', 2, 2, 2, 2, 150.00, .00, '已送達', '信用卡', '2024-05-05', '2024-05-05', 0, 15, 103.00),
-    (3, 3, 3, '2024-05-03', 3, 3, 3, 3, 200.00, 50.00, '已送達', '現金支付', '2024-05-06', '2024-05-06', 0, 20, 120.00),
-    (4, 4, 4, '2024-05-04', 4, 4, 4, 4, 250.00, 37.50, '已送達', '現金支付', '2024-05-07', '2024-05-07', 1, 25, 172.50),
-    (5, 5, 5, '2024-05-05', 5, 5, 5, 5, 300.00, 82.50, '運送中', '信用卡', '2024-05-08', '2024-05-08', 0, 30, 167.50),
-    (6, 6, 6, '2024-05-06', 6, 6, 6, 6, 350.00, 84.00, '運送中', '現金支付', '2024-05-09', '2024-05-09', 1, 35, 206.00),
-    (7, 7, 7, '2024-05-07', 7, 7, 7, 7, 400.00, 140.00, '已發貨', '信用卡', '2024-05-10', '2024-05-10', 1, 40, 190.00),
-    (8, 8, 8, '2024-05-08', 8, 8, 8, 8, 450.00, 156.60, '已發貨', '現金支付', '2024-05-11', '2024-05-11', 2, 45, 213.40),
-    (9, 9, 9, '2024-05-09', 9, 9, 9, 9, 500.00, 55.00, '已送達', '現金支付', '2024-05-12', '2024-05-12', 0, 50, 355.00),
-    (10, 10, 10, '2024-05-10', 10, 10, 10, 10, 550.00, 165.00, '已送達', '現金支付', '2024-05-13', '2024-05-13', 0, 55, 285.00);
+   (1, '2024-05-01', 5, 1, 1, 1, 100.00, 15.00, '已送達', '線上支付', '2024-05-04', '2024-05-04', 0, 10, 35.00),
+    (2, '2024-05-02', 2, 2, 2, 2, 150.00, 0.00, '已送達', '信用卡', '2024-05-05', '2024-05-05', 0, 15, 135.00),
+    (3, '2024-05-03', 3, 3, 3, 3, 200.00, 50.00, '已送達', '現金支付', '2024-05-06', '2024-05-06', 0, 20, 130.00),
+    (4, '2024-05-04', 4, 4, 4, 4, 250.00, 37.50, '已送達', '現金支付', '2024-05-07', '2024-05-07', 1, 25, 187.50),
+    (5, '2024-05-05', 5, 5, 5, 5, 300.00, 82.50, '運送中', '信用卡', '2024-05-08', '2024-05-08', 0, 30, 217.50),
+    (6, '2024-05-06', 6, 6, 6, 6, 350.00, 84.00, '運送中', '現金支付', '2024-05-09', '2024-05-09', 1, 35, 231.00),
+    (7, '2024-05-07', 7, 7, 7, 7, 400.00, 140.00, '已發貨', '信用卡', '2024-05-10', '2024-05-10', 1, 40, 260.00),
+    (8, '2024-05-08', 8, 8, 8, 8, 450.00, 156.60, '已發貨', '現金支付', '2024-05-11', '2024-05-11', 2, 45, 293.40),
+    (9, '2024-05-09', 9, 9, 9, 9, 500.00, 55.00, '已送達', '現金支付', '2024-05-12', '2024-05-12', 0, 50, 445.00),
+    (10, '2024-05-10', 10, 10, 10, 10, 550.00, 165.00, '已送達', '現金支付', '2024-05-13', '2024-05-13', 0, 55, 385.00);
 
 
 
@@ -376,20 +376,19 @@ CREATE TABLE orderDetails (
     orderId INT NOT NULL,                                     --訂單編號
     productId INT NOT NULL,                                   --產品編號
     quantity INT NOT NULL,                                     --數量
-   
-   
-    --FOREIGN KEY (order_id) REFERENCES orders(order_id),         
-   -- FOREIGN KEY (product_id) REFERENCES Products(product_id)
+	subTotal DECIMAL(10, 2) NOT NULL,							--單一商品小計
+    FOREIGN KEY (orderId) REFERENCES orders(orderId),         
+   FOREIGN KEY (productId) REFERENCES Product(productId)
 );
 
-INSERT INTO orderDetails (orderId, productId, quantity) VALUES
-(1, 1, 2),
-(2, 2, 1),
-(3, 3, 3),
-(4, 4, 2),
-(5, 5, 1),
-(6, 6, 4),
-(7, 7, 2),
-(8, 8, 1),
-(9, 9, 5),
-(10, 10, 3);
+INSERT INTO orderDetails (orderId, productId, quantity,subtotal) VALUES
+(1, 1, 2, 30.00),
+(2, 2, 1, 50.00),
+(3, 3, 3, 90.00),
+(4, 4, 2, 60.00),
+(5, 5, 1, 40.00),
+(6, 6, 4, 120.00),
+(7, 7, 2, 70.00),
+(8, 8, 1, 30.00),
+(9, 9, 5, 150.00),
+(10, 10, 3, 90.00);
