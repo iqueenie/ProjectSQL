@@ -14,30 +14,35 @@ DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS admins;
 DROP TABLE IF EXISTS stores;
+DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS rolePermissions;
 
 CREATE TABLE members (
-    memberId INT PRIMARY KEY,
-    memberName VARCHAR(100),
+    memberId INT PRIMARY KEY IDENTITY(1,1),
+	memberPhoto VARCHAR(255) NULL,
+    memberName VARCHAR(100) NOT NULL,
     memberAccount VARCHAR(100) UNIQUE,
-    memberPassword VARCHAR(100),
-    memberAddress VARCHAR(255),
+    memberPassword VARCHAR(100) NOT NULL,
+	memberBirthDate DATE NULL,
+    memberAddress VARCHAR(255)  NULL,
     memberEmail VARCHAR(100) UNIQUE,
     points INT DEFAULT 0,
-	lockStatus VARCHAR(10)
+    lockStatus VARCHAR(10) DEFAULT '正常'
 );
 
 
-INSERT INTO	members (memberId, memberName, memberAccount, memberPassword, memberAddress, memberEmail,lockStatus) VALUES
-(1, '陳小明', 'chenxiaoming', 'mypassword', '台北市信義區', 'chenxiaoming@example.com','正常'),
-(2, '林小華', 'linxiaohua', 'abc123', '新北市板橋區', 'linxiaohua@example.com','正常'),
-(3, '張小美', 'zhangxiaomei', 'qwerty', '桃園市中壢區', 'zhangxiaomei@example.com','正常'),
-(4, '李小龍', 'lisaolong', 'iloveyou', '台中市西屯區', 'lisaolong@example.com','正常'),
-(5, '王小強', 'wangxiaoqiang', 'passpass', '台南市安南區', 'wangxiaoqiang@example.com','正常'),
-(6, '吳小姍', 'wuxiaoshan', 'letmein', '高雄市前鎮區', 'wuxiaoshan@example.com','正常'),
-(7, '陳小玲', 'chenxiaoling', '123456789', '基隆市安樂區', 'chenxiaoling@example.com','正常'),
-(8, '林小春', 'linxiaochun', 'sunshine', '新竹市東區', 'linxiaochun@example.com','正常'),
-(9, '黃小薇', 'huangxiaowei', 'password', '嘉義市東區', 'huangxiaowei@example.com','正常'),
-(10, '劉小琪', 'liuxiaoqi', 'welcome', '新北市永和區', 'liuxiaoqi@example.com','正常');
+INSERT INTO members (memberName, memberAccount, memberPassword, memberAddress, memberEmail)
+VALUES
+('陳小明','chenxiaoming', 'mypassword','台北市信義區','chenxiaoming@example.com'),
+('林小華','linxiaohua', 'abc123', '新北市板橋區','linxiaohua@example.com'),
+('張小美','zhangxiaomei', 'qwerty', '桃園市中壢區','zhangxiaomei@example.com'),
+('李小龍','lisaolong', 'iloveyou', '台中市西屯區','lisaolong@example.com'),
+('王小強','wangxiaoqiang', 'passpass', '台南市安南區','wangxiaoqiang@example.com'),
+('吳小姍','wuxiaoshan', 'letmein', '高雄市前鎮區','wuxiaoshan@example.com'),
+('陳小玲','chenxiaoling', '123456789', '基隆市安樂區','chenxiaoling@example.com'),
+('林小春','linxiaochun', 'sunshine', '新竹市東區','linxiaochun@example.com'),
+('黃小薇','huangxiaowei', 'password', '嘉義市東區','huangxiaowei@example.com'),
+('劉小琪','liuxiaoqi', 'welcome', '新北市永和區','liuxiaoqi@example.com');
 
 CREATE TABLE product (
     productId INT PRIMARY KEY IDENTITY(1,1),
@@ -309,24 +314,62 @@ VALUES
     ('滿漢大餐酸菜牛肉拌麵優惠', 9, 20, '2024-05-01', '2024-05-31',1),
     ('熱那亞羅勒義大利麵優惠', 10, 18, '2024-05-01', '2024-05-31',1);
 
+-- 權限表
+CREATE TABLE roles (
+    roleId INT PRIMARY KEY,
+    roleName VARCHAR(100) UNIQUE,
+    roleDescription VARCHAR(255) -- 管理員能做的事情
+);
+
+-- 管理員能做的事情
+INSERT INTO roles (roleId, roleName, roleDescription)
+VALUES
+(1, '總管理員', '擁有所有管理員權限'),
+(2, '一般管理員', '管理特定項目'),
+(3, '店長', '負責管理特定店鋪的日常運營');
+
+-- 管理員表
 CREATE TABLE admins (
     adminId INT PRIMARY KEY,
     adminUsername VARCHAR(100) UNIQUE,
     adminPassword VARCHAR(100),
     adminTitle VARCHAR(100),
-	storeId INT,
-	FOREIGN KEY (storeId) REFERENCES stores(storeId)
+    roleId INT,  
+    storeId INT, 
+    FOREIGN KEY (roleId) REFERENCES roles(roleId)
 );
 
-INSERT INTO admins (adminId, adminuserName, adminPassword, adminTitle,storeId) VALUES
-(1, 'aaa123', 'aaa123', '後台系統管理員',NULL),
-(2, 'bbb123', 'bbb123', '商品系統管理員',NULL),
-(3, 'ccc123', 'ccc123', '店鋪系統管理員',NULL),
-(4, 'ddd123', 'ddd123', '活動系統管理員',NULL),
-(5, 'eee123', 'eee123','團購系統管理員',NULL),
-(6, 'fff123', 'fff123','購物車系統管理員',NULL),
-(7, 'ggg123', 'ggg123','會員系統管理員',NULL),
-(8, 'hhh123', 'hhh123','店長',1);
+
+INSERT INTO admins (adminId, adminUsername, adminPassword, adminTitle, roleId, storeId)
+VALUES
+(1, 'aaa123', 'aaa123', '後台總管理員', 1, NULL),
+(2, 'bbb123', 'bbb123', '一般管理員', 2, NULL),
+(3, 'ccc123', 'ccc123', '店長', 3, 1);
+
+
+
+-- 權限表
+CREATE TABLE rolePermissions (
+    roleId INT,
+    moduleName VARCHAR(100),
+    createPermission VARCHAR(5),
+    readPermission VARCHAR(5),
+    updatePermission VARCHAR(5),
+    deletePermission VARCHAR(5),
+    PRIMARY KEY (roleId, moduleName),
+    FOREIGN KEY (roleId) REFERENCES roles(roleId)
+);
+
+
+-- 管理員擁有所有權限
+INSERT INTO rolePermissions (roleId, moduleName, createPermission, readPermission, updatePermission, deletePermission)
+VALUES
+(1, '總管理員', 'true', 'true', 'true', 'true'),
+-- 一般管理員的權限
+(2, '一般管理員', 'true', 'true', 'true', 'false'),
+-- 店長管理其分配店鋪的操作
+(3, '店鋪管理', 'true', 'true', 'true', 'true');
+
 
 
 CREATE TABLE orders (
