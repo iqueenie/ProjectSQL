@@ -12,10 +12,13 @@ DROP TABLE IF EXISTS productDiscount;
 DROP TABLE IF EXISTS amountDiscount;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS members;
-DROP TABLE IF EXISTS admins;
 DROP TABLE IF EXISTS stores;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS rolePermissions;
+
+DROP TABLE IF EXISTS actionPermission;
+DROP TABLE IF EXISTS rolePermission;
+DROP TABLE IF  EXISTS managementRoles;
+DROP TABLE IF EXISTS management;
+DROP TABLE IF EXISTS roles
 
 CREATE TABLE members (
     memberId INT PRIMARY KEY IDENTITY(1,1),
@@ -314,62 +317,89 @@ VALUES
     ('滿漢大餐酸菜牛肉拌麵優惠', 9, 20, '2024-05-01', '2024-05-31',1),
     ('熱那亞羅勒義大利麵優惠', 10, 18, '2024-05-01', '2024-05-31',1);
 
--- 權限表
+-- 創建管理員表
+CREATE TABLE management (
+    managementId INT PRIMARY KEY IDENTITY(1,1),
+    managementAccount VARCHAR(100) NOT NULL,
+    managementPassword VARCHAR(100) NOT NULL
+);
+
+-- 插入管理員帳號密碼
+INSERT INTO management (managementAccount, managementPassword)
+VALUES 
+    ('aaa123', 'aaa123'),
+    ('bbb123', 'bbb123'),
+    ('ccc123', 'ccc123');
+
+
+
+-- 創建角色表
 CREATE TABLE roles (
-    roleId INT PRIMARY KEY,
-    roleName VARCHAR(100) UNIQUE,
-    roleDescription VARCHAR(255) -- 管理員能做的事情
+    rolesId INT PRIMARY KEY IDENTITY(1,1),
+    rolesName VARCHAR(100) NOT NULL
 );
 
--- 管理員能做的事情
-INSERT INTO roles (roleId, roleName, roleDescription)
-VALUES
-(1, '總管理員', '擁有所有管理員權限'),
-(2, '一般管理員', '管理特定項目'),
-(3, '店長', '負責管理特定店鋪的日常運營');
+-- 插入角色名稱
+INSERT INTO roles (rolesName)
+VALUES 
+    ('總管理員'), 
+    ('一般管理員'), 
+    ('店長');
 
--- 管理員表
-CREATE TABLE admins (
-    adminId INT PRIMARY KEY,
-    adminUsername VARCHAR(100) UNIQUE,
-    adminPassword VARCHAR(100),
-    adminTitle VARCHAR(100),
-    roleId INT,  
-    storeId INT, 
-    FOREIGN KEY (roleId) REFERENCES roles(roleId)
+-- 創建操作權限表
+CREATE TABLE actionPermission (
+    permissionId INT PRIMARY KEY IDENTITY(1,1),
+    permission VARCHAR(100) NOT NULL
 );
 
+-- 插入操作權限
+INSERT INTO actionPermission (permission)
+VALUES 
+    ('create'), 
+    ('read'), 
+    ('update'), 
+    ('delete');
 
-INSERT INTO admins (adminId, adminUsername, adminPassword, adminTitle, roleId, storeId)
-VALUES
-(1, 'aaa123', 'aaa123', '後台總管理員', 1, NULL),
-(2, 'bbb123', 'bbb123', '一般管理員', 2, NULL),
-(3, 'ccc123', 'ccc123', '店長', 3, 1);
-
-
-
--- 權限表
-CREATE TABLE rolePermissions (
-    roleId INT,
-    moduleName VARCHAR(100),
-    createPermission VARCHAR(5),
-    readPermission VARCHAR(5),
-    updatePermission VARCHAR(5),
-    deletePermission VARCHAR(5),
-    PRIMARY KEY (roleId, moduleName),
-    FOREIGN KEY (roleId) REFERENCES roles(roleId)
+-- 創建管理員角色關係表
+CREATE TABLE managementRoles (
+    managementId INT NOT NULL,
+    rolesId INT NOT NULL,
+    PRIMARY KEY (managementId, rolesId),
+    FOREIGN KEY (managementId) REFERENCES management(managementId),
+    FOREIGN KEY (rolesId) REFERENCES roles(rolesId)
 );
 
+INSERT INTO managementRoles (managementId, rolesId)
+VALUES 
+    (1, 1),  -- managementId = 1, rolesId = 1 (總管理員)
+    (2, 2),  -- managementId = 2, rolesId = 2 (一般管理員)
+    (3, 3);  -- managementId = 3, rolesId = 3 (店長)
 
--- 管理員擁有所有權限
-INSERT INTO rolePermissions (roleId, moduleName, createPermission, readPermission, updatePermission, deletePermission)
-VALUES
-(1, '總管理員', 'true', 'true', 'true', 'true'),
--- 一般管理員的權限
-(2, '一般管理員', 'true', 'true', 'true', 'false'),
--- 店長管理其分配店鋪的操作
-(3, '店鋪管理', 'true', 'true', 'true', 'true');
+-- 創建角色權限關係表
+CREATE TABLE rolePermission (
+    rolesId INT NOT NULL,
+    permissionId INT NOT NULL,
+    PRIMARY KEY (rolesId, permissionId),
+    FOREIGN KEY (rolesId) REFERENCES roles(rolesId),
+    FOREIGN KEY (permissionId) REFERENCES actionPermission(permissionId)
+);
 
+-- 插入角色權限關係數據
+INSERT INTO rolePermission (rolesId, permissionId)
+VALUES 
+    (1, 1),  -- 總管理員 - create
+    (1, 2),  -- 總管理員 - read
+    (1, 3),  -- 總管理員 - update
+    (1, 4),  -- 總管理員 - delete
+
+    (2, 1),  -- 一般管理員 - create
+    (2, 2),  -- 一般管理員 - read
+    (2, 3),  -- 一般管理員 - update
+
+	(3, 1),  -- 店長 - create
+    (3, 2),  -- 店長 - read
+    (3, 3),  -- 店長 - update
+    (3, 4);  -- 店長 - delete
 
 
 CREATE TABLE orders (
