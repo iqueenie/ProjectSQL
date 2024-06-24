@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS productDiscount;
 DROP TABLE IF EXISTS amountDiscount;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS admins;
 DROP TABLE IF EXISTS stores;
 
 DROP TABLE IF EXISTS actionPermission;
