@@ -15,11 +15,11 @@ DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS admins;
 DROP TABLE IF EXISTS stores;
 
-DROP TABLE IF EXISTS actionPermission;
 DROP TABLE IF EXISTS rolePermission;
 DROP TABLE IF  EXISTS managementRoles;
 DROP TABLE IF EXISTS management;
 DROP TABLE IF EXISTS roles
+DROP TABLE IF EXISTS actionPermission;
 
 CREATE TABLE members (
     memberId INT PRIMARY KEY IDENTITY(1,1),
@@ -331,7 +331,6 @@ VALUES
     ('aaa123', 'aaa123'),
     ('bbb123', 'bbb123'),
     ('ccc123', 'ccc123');
-
 
 
 -- 創建角色表
