@@ -23,18 +23,18 @@ DROP TABLE IF EXISTS actionPermission;
 
 
 /*DROP後先跑SPRINGBOOT把TABLE建起來 再跑下面的*/
-INSERT INTO members (memberName, memberAccount, memberPassword, memberAddress, memberEmail)
+INSERT INTO members (memberName, memberAccount, memberPassword, memberAddress, memberEmail,registrationDate)
 VALUES
-('陳小明','chenxiaoming', 'mypassword','台北市信義區','chenxiaoming@example.com'),
-('林小華','linxiaohua', 'abc123', '新北市板橋區','linxiaohua@example.com'),
-('張小美','zhangxiaomei', 'qwerty', '桃園市中壢區','zhangxiaomei@example.com'),
-('李小龍','lisaolong', 'iloveyou', '台中市西屯區','lisaolong@example.com'),
-('王小強','wangxiaoqiang', 'passpass', '台南市安南區','wangxiaoqiang@example.com'),
-('吳小姍','wuxiaoshan', 'letmein', '高雄市前鎮區','wuxiaoshan@example.com'),
-('陳小玲','chenxiaoling', '123456789', '基隆市安樂區','chenxiaoling@example.com'),
-('林小春','linxiaochun', 'sunshine', '新竹市東區','linxiaochun@example.com'),
-('黃小薇','huangxiaowei', 'password', '嘉義市東區','huangxiaowei@example.com'),
-('劉小琪','liuxiaoqi', 'welcome', '新北市永和區','liuxiaoqi@example.com');
+('陳小明', 'chenxiaoming', 'mypassword', '台北市信義區', 'chenxiaoming@example.com', '2022-07-24'),
+('林小華', 'linxiaohua', 'abc123', '新北市板橋區', 'linxiaohua@example.com', '2022-10-08'),
+('張小美', 'zhangxiaomei', 'qwerty', '桃園市中壢區', 'zhangxiaomei@example.com', '2023-07-05'),
+('李小龍', 'lisaolong', 'iloveyou', '台中市西屯區', 'lisaolong@example.com', '2023-09-23'),
+('王小強', 'wangxiaoqiang', 'passpass', '台南市安南區', 'wangxiaoqiang@example.com', '2023-08-17'),
+('吳小姍', 'wuxiaoshan', 'letmein', '高雄市前鎮區', 'wuxiaoshan@example.com', '2023-11-16'),
+('陳小玲', 'chenxiaoling', '123456789', '基隆市安樂區', 'chenxiaoling@example.com', '2024-05-25'),
+('林小春', 'linxiaochun', 'sunshine', '新竹市東區', 'linxiaochun@example.com', '2024-06-11'),
+('黃小薇', 'huangxiaowei', 'password', '嘉義市東區', 'huangxiaowei@example.com', '2024-02-08'),
+('劉小琪', 'liuxiaoqi', 'welcome', '新北市永和區', 'liuxiaoqi@example.com', '2024-07-14');
 
 INSERT INTO product (productName, productType, productCost, productPrice, productExpirydate, productDescription, productPublished)
 VALUES 
