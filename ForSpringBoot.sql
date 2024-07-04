@@ -177,11 +177,11 @@ VALUES
     ('滿漢大餐酸菜牛肉拌麵優惠', 9, 20, '2024-05-01', '2024-05-31',1),
     ('熱那亞羅勒義大利麵優惠', 10, 18, '2024-05-01', '2024-05-31',1);
 
-INSERT INTO management (managementAccount, managementPassword)
+INSERT INTO management (managementId,managementAccount, managementPassword)
 VALUES 
-    ('aaa123', 'aaa123'),
-    ('bbb123', 'bbb123'),
-    ('ccc123', 'ccc123');
+    (NEWID(),'aaa123', 'aaa123'),
+    (NEWID(),'bbb123', 'bbb123'),
+    (NEWID(),'ccc123', 'ccc123');
 
 INSERT INTO orders (memberId,  orderDate, pointUse, amountDiscountId, productDiscountId, storeId, total, discountMoney, status, paymentMethod, orderSuccessDate, pickupDate, unpaidCount, pointGet, finalAmount)
 VALUES
