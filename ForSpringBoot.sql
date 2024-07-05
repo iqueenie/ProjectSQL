@@ -210,3 +210,17 @@ INSERT INTO orderDetails (orderId, productId, quantity,subtotal) VALUES
 (10, 10, 3, 90.00);
 
 
+-- 插入角色名稱
+INSERT INTO roles (rolesName)
+VALUES 
+    ('總管理員'), 
+    ('一般管理員'), 
+    ('店長');
+
+
+INSERT INTO managementRoles (managementId, rolesId)
+VALUES 
+    (1, 1),  -- managementId = 1, rolesId = 1 (總管理員)
+    (2, 2),  -- managementId = 2, rolesId = 2 (一般管理員)
+    (3, 3);  -- managementId = 3, rolesId = 3 (店長)
+
