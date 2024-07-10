@@ -23,18 +23,36 @@ DROP TABLE IF EXISTS actionPermission;
 
 
 /*DROP後先跑SPRINGBOOT把TABLE建起來 再跑下面的*/
-INSERT INTO members (memberName, memberAccount, memberPassword, memberAddress, memberEmail,registrationDate)
+INSERT INTO members (memberName, memberAccount, memberPassword, memberAddress,memberBirthDate, memberEmail,points,lockStatus,registrationDate)
 VALUES
-('陳小明', 'chenxiaoming', 'mypassword', '台北市信義區', 'chenxiaoming@example.com', '2022-07-24'),
-('林小華', 'linxiaohua', 'abc123', '新北市板橋區', 'linxiaohua@example.com', '2022-10-08'),
-('張小美', 'zhangxiaomei', 'qwerty', '桃園市中壢區', 'zhangxiaomei@example.com', '2023-07-05'),
-('李小龍', 'lisaolong', 'iloveyou', '台中市西屯區', 'lisaolong@example.com', '2023-09-23'),
-('王小強', 'wangxiaoqiang', 'passpass', '台南市安南區', 'wangxiaoqiang@example.com', '2023-08-17'),
-('吳小姍', 'wuxiaoshan', 'letmein', '高雄市前鎮區', 'wuxiaoshan@example.com', '2023-11-16'),
-('陳小玲', 'chenxiaoling', '123456789', '基隆市安樂區', 'chenxiaoling@example.com', '2024-05-25'),
-('林小春', 'linxiaochun', 'sunshine', '新竹市東區', 'linxiaochun@example.com', '2024-06-11'),
-('黃小薇', 'huangxiaowei', 'password', '嘉義市東區', 'huangxiaowei@example.com', '2024-02-08'),
-('劉小琪', 'liuxiaoqi', 'welcome', '新北市永和區', 'liuxiaoqi@example.com', '2024-07-14');
+('陳小明', 'chenxiaoming', 'mypassword', '台北市信義區','1997-07-01', 'chenxiaoming@example.com','0','正常','2022-02-03'),
+('林小華', 'linxiaohua', 'abc123', '新北市板橋區','1992-04-08', 'linxiaohua@example.com','0','正常', '2022-2-06'),
+('張小美', 'zhangxiaomei', 'qwerty', '桃園市中壢區','1982-05-09', 'zhangxiaomei@example.com','0','正常', '2023-03-25'),
+('李小龍', 'lisaolong', 'iloveyou', '台中市西屯區','1999-02-03', 'lisaolong@example.com','0','正常', '2023-04-11'),
+('王小強', 'wangxiaoqiang', 'passpass', '台南市安南區','1992-03-21', 'wangxiaoqiang@example.com','0','正常', '2023-05-17'),
+('吳小姍', 'wuxiaoshan', 'letmein', '高雄市前鎮區','1990-01-03', 'wuxiaoshan@example.com','0','正常', '2023-05-26'),
+('陳小玲', 'chenxiaoling', '123456789', '基隆市安樂區','1992-04-03', 'chenxiaoling@example.com','0','正常', '2024-05-01'),
+('林小春', 'linxiaochun', 'sunshine', '新竹市東區','1987-11-13', 'linxiaochun@example.com','0','正常', '2024-06-11'),
+('黃小薇', 'huangxiaowei', 'password', '嘉義市東區','1991-07-30', 'huangxiaowei@example.com','0','正常', '2024-07-09'),
+('劉小琪', 'liuxiaoqi', 'welcome', '新北市永和區','1994-02-02', 'liuxiaoqi@example.com','0','正常', '2023-08-22'),
+('陳小芳', 'chenxiaofang', 'flower123', '台北市中山區','1995-08-15', 'chenxiaofang@example.com','0','正常', '2023-09-16'),
+('李小明', 'lixiaoming', 'welcome123', '新北市新店區','1998-09-20', 'lixiaoming@example.com','0','正常', '2023-09-23'),
+('王小妮', 'wangxiaoni', 'mypass123', '台中市北區','1993-06-12', 'wangxiaoni@example.com','0','正常', '2024-01-18'),
+('張小華', 'zhangxiaohua', 'sunflower', '台南市南區','1990-03-25', 'zhangxiaohua@example.com','0','正常', '2024-01-04'),
+('林小明', 'linxiaoming2', 'abcxyz', '新竹市北區','1985-12-08', 'linxiaoming2@example.com','0','正常', '2024-02-12'),
+('王小強', 'wangxiaoqiang2', 'qazwsx', '高雄市楠梓區','1996-04-30', 'wangxiaoqiang2@example.com','0','正常', '2024-02-22'),
+('陳小美', 'chenxiaomei2', 'p@ssw0rd', '基隆市仁愛區','1988-07-17', 'chenxiaomei2@example.com','0','正常', '2024-03-05'),
+('林小菁', 'linxiaojing', 'ilovecoding', '桃園市桃園區','1991-09-03', 'linxiaojing@example.com','0','正常', '2024-04-14'),
+('張小翔', 'zhangxiaoxiang', 'letmeinnow', '彰化市彰化區','1983-11-21', 'zhangxiaoxiang@example.com','0','正常', '2023-09-28'),
+('吳小婷', 'wuxiaoting', 'myp@ssword', '嘉義市西區','1994-02-18', 'wuxiaoting@example.com','0','正常', '2023-10-22'),
+('李小芳', 'lixiaofang', 'summer456', '台北市大安區','1996-08-20', 'lixiaofang@example.com','0','正常', '2023-11-03'),
+('王小明', 'wangxiaoming3', 'welcome456', '新北市蘆洲區','1999-07-12', 'wangxiaoming3@example.com','0','正常', '2023-12-08'),
+('張小強', 'zhangxiaoqiang', 'mypassword456', '台中市北屯區','1993-05-25', 'zhangxiaoqiang@example.com','0','正常', '2023-12-11'),
+('林小雲', 'linxiaoyun', 'cloudyday', '台中市南區','1997-10-18', 'linxiaoyun@example.com','0','正常', '2024-07-22'),
+('陳小華', 'chenxiaohua', 'flowerpower', '高雄市三民區','1990-12-25', 'chenxiaohua@example.com','0','正常', '2024-05-11'),
+('蕭景鴻', 'linxia444', 'cloud77', '台北市信義','1997-10-18', 'linxiaoyun666@example.com','0','正常', '2024-07-26'),
+('楊貽婷', 'linx777', 'cloud2222', '彰化市社頭鄉','1994-10-18', 'linxiao1111@example.com','0','正常', '2024-07-28');
+
 
 INSERT INTO product (productName, productType, productCost, productPrice, productExpirydate, productDescription, productPublished, productQuantity)
 VALUES 
