@@ -223,7 +223,16 @@ INSERT INTO management (managementAccount, managementPassword)
 VALUES 
     ('aaa123', 'aaa123'),
     ('bbb123', 'bbb123'),
-    ('ccc123', 'ccc123');
+    ('ccc123', 'ccc123'),
+	('ddd123', 'ddd123'),
+	('eee123', 'eee123'),
+	('fff123', 'fff123'),
+	('ggg123', 'ggg123'),
+	('hhh123', 'hhh123'),
+	('iii123', 'iii123'),
+	('jjj123', 'jjj123'),
+	('kkk123', 'kkk123'),
+	('lll123', 'lll123');  --前面3個是L
 
 INSERT INTO orders (memberId, orderDate, pointUse, amountDiscountId, productDiscountId, storeId, total, discountMoney, status, paymentMethod, orderSuccessDate, pickupDate, unpaidCount, pointGet, finalAmount)
 VALUES
@@ -280,9 +289,17 @@ VALUES
     ('店長');
 
 
-INSERT INTO managementRoles (managementId, rolesId)
+INSERT INTO managementRoles (managementId,rolesId,storeId)
 VALUES 
-    (1, 1),  -- managementId = 1, rolesId = 1 (總管理員)
-    (2, 2),  -- managementId = 2, rolesId = 2 (一般管理員)
-    (3, 3);  -- managementId = 3, rolesId = 3 (店長)
-
+    (1, 1,null),  -- managementId = 1, rolesId = 1 (總管理員)
+    (2, 2,null),  -- managementId = 2, rolesId = 2 (一般管理員)
+    (3, 3,1),     -- managementId = 3, rolesId = 3 (店長) --storeId (店鋪)
+	(4,3,2),   
+	(5,3,3),
+	(6,3,4),
+	(7,3,5),
+	(8,3,6),
+	(9,3,7),
+	(10,3,8),
+	(11,3,9),
+	(12,3,10);
