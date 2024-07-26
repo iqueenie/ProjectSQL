@@ -330,7 +330,13 @@ VALUES(1,1),
     (5,3),
     (5,9),
     (8,8),
-    (9,2);
+    (9,2),
+	(9,3),
+	(9,9),
+	(10,5),
+	(11,5),
+	(11,6),
+	(12,7);
 
 INSERT INTO groupBuy (productId, storeId, price, targetQuantity, nowQuantity, orderDate, arrivalDate, endDate, groupBuyStatus) VALUES
 (1, 1, 14, 10, 10, '2024-06-01', NULL, NULL, '已結單'),
